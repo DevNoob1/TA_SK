@@ -6,18 +6,9 @@ const Navbar = () => {
     const [showHamburger, setShowHamburger] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 50) {
-                setShowHamburger(true); // Show hamburger icon after scrolling 50px
-            } else {
-                setShowHamburger(false); // Hide icon when at the top
-            }
-        };
-
+        const handleScroll = () => setShowHamburger(window.scrollY > 50);
         window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     return (
