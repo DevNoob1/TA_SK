@@ -1,6 +1,5 @@
 .section {
     height: 100vh;
-    /* Full viewport height for each section */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +11,7 @@
     overflow-y: hidden;
 }
 
-/* Apple section with sticky behavior */
+/* Apple section */
 .apple-section {
     position: sticky;
     top: 0;
@@ -20,7 +19,6 @@
     background-color: #2f3c39;
     color: #f2f2f2;
     z-index: 1;
-    /* Ensure it's above other sections while scrolling */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,13 +29,10 @@
     margin-top: 250px;
     max-width: 90%;
     transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
-
 }
 
 .apple-section .content p {
     font-size: 15px;
-
-    /* opacity: 0; */
     transform: translateY(-0px);
     transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
 }
@@ -45,7 +40,6 @@
 .apple-section.scrolled .content {
     opacity: 0;
     transform: translateY(-100px);
-    /* Fades out and moves upward when scrolling past */
 }
 
 .image-container {
@@ -66,13 +60,9 @@
 .lorem-button {
     position: absolute;
     bottom: 250px;
-    /* Positioning at the bottom of the image */
     right: 0px;
-    /* Positioning at the right of the image */
     opacity: 0;
-    /* Start with opacity 0 */
     transform: translateY(20px);
-    /* Slightly translate downwards */
     background-color: rgba(60, 66, 67, 1);
     color: white;
     padding: 8px 16px;
@@ -85,17 +75,12 @@
 
 .lorem-button.visible {
     opacity: 1;
-    /* Fade-in to full opacity */
     transform: translateY(0);
-    /* Slide back to original position */
     z-index: 1000;
-    /* Smoothly make it appear */
 }
-
 
 .apple-section.scrolled .image-container img {
     transform: scale(1.1) translateY(-200px);
-    /* Zooms in and moves 200px upwards */
 }
 
 /* Mango section */
@@ -103,7 +88,6 @@
     background-color: #2f3c39;
     color: #fff;
     height: 10vh;
-    /* margin-top: 100px; */
     padding: 2rem;
     display: flex;
     gap: 20px;
@@ -111,29 +95,17 @@
     justify-content: left;
     text-align: left;
     align-items: start;
-    /* bottom: -70px; */
-    /* Adjusts the initial position */
     z-index: 1;
-    /* Make sure it's below the apple section */
     position: relative;
-    /* Relative position to prevent conflicts with the sticky section */
     opacity: 0;
-    /* Start with no opacity */
     transform: translateY(20px);
-    /* Start slightly below */
     transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-    /* Smooth transition */
 }
 
-/* Add a class to reveal the mango section */
 .mango-section.visible {
     opacity: 1;
-    /* Fully visible when class is added */
-    /* transform: translateY(100px); */
     z-index: 88;
-
     color: white;
-    /* Move to original position */
 }
 
 .mango-section h1 {
