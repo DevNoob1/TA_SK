@@ -1,24 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import Image from '../assets/group.jpg';
-import '../styles/Last.css'; // Import the CSS styles
+import '../styles/Last.css';
 
+// Last component with scroll-based animations
 const Last = () => {
     const [scrollY, setScrollY] = useState(0);
 
-    const handleScroll = () => {
-        setScrollY(window.scrollY - 700);
-    };
-
     useEffect(() => {
+        const handleScroll = () => setScrollY(window.scrollY - 700);
         window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     return (
         <div>
-            {/* Apple section */}
             <div className={`section apple-section ${scrollY > window.innerHeight ? 'scrolled' : ''}`}>
                 <div className="content">
                     <h3 style={{ fontSize: '15px', fontWeight: '200' }}>LOREM OF</h3>
@@ -26,8 +21,7 @@ const Last = () => {
                     <p>
                         A Lorem for the ipsum, A lorem for the ipsum, A lorem for the ipsum.
                         A Lorem for the ipsum, A lorem for the ipsum, A lorem for the ipsum.
-                        <br />
-                        <br />
+                        <br /><br />
                         A Lorem for the ipsum, A lorem for the ipsum, A lorem for the ipsum.
                         A Lorem for the ipsum, A lorem for the ipsum, A lorem for the ipsum.
                     </p>
@@ -40,15 +34,11 @@ const Last = () => {
                 </div>
             </div>
 
-            {/* Mango section */}
-            <div
-                className={`section mango-section ${scrollY > 400 ? 'visible' : ''}`} // Add 'visible' class when scrollY > 600
-            >
+            <div className={`section mango-section ${scrollY > 400 ? 'visible' : ''}`}>
                 <h1 style={{ marginTop: '3px' }}>Lorem <br />In <br />Ipsum</h1>
                 <div style={{ height: '90px', width: '1px', background: 'white' }}></div>
                 <p style={{ marginTop: '2px' }}>Lorem lorem <br />Ipsum Ipsum <br />Lorem lorem <br />Ipsum Ipsum</p>
             </div>
-
         </div>
     );
 };
